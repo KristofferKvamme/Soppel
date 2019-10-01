@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="nb">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" href="./favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Søppel Kart</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="gridContainer">
+        <div id="sidebar">
+            <h1>Get Trash</h1>
+            <div class="sidebarInfo">
+                <div class="filter">
+                    <h2><u>Filter</u></h2>
+                    <div class="filterBox">
+                        <input type="checkbox" name="Bio" id="filterBio" onclick="filterMarkers()" />
+                        <div class="checkboxText"><b>Bio</b></div>
+                    </div>
+                    <div class="filterBox">
+                        <input type="checkbox" name="Papir" id="filterPapir" onclick="filterMarkers()" />
+                        <div class="checkboxText"><b>Papir</b></div>
+                    </div>
+                    <div class="filterBox">
+                        <input type="checkbox" name="Restavfall" id="filterRestavfall" onclick="filterMarkers()" />
+                        <div class="checkboxText"><b>Restavfall</b></div>
+                    </div>
+                    <div class="filterBox">
+                        <input type="checkbox" name="GlassOgMetall" id="filterGlassOgMetall" onclick="filterMarkers()" />
+                        <div class="checkboxText"><b>Glass og Metall</b></div>
+                    </div>
+                    <div class="fillSlider">
+                        <div class="fillSliderText"><b>Fyllprosent:
+                            <span id="fillPercent">70</span>%</b></div>
+                        <input type="range" min="1" max="100" value="70" class="slider" id="fillSlider" onchange="filterMarkers()" oninput="changeValue()" id="myRange">
+                    </div>
+
+                </div>
+                <div class="infoPanel">
+                    <h2><u>Info</u></h2>
+                    <div class="infoView">
+                        <div class="infoLine">
+                            <div class="title"><b>Conteiner number: </b></div>
+                            <div id="containerNumber"></div>
+                        </div>
+                        <div class="infoLine  underInfo">
+                            <div class="title"><b>Category: </b></div>
+                            <div id="containerCategory"></div>
+                        </div>
+                        <div class="infoLine  underInfo">
+                            <div class="title"><b>Address: </b></div>
+                            <div id="containerAddress"></div>
+                        </div>
+                        <div class="infoLine  underInfo">
+                            <div class="title"><b>FillHeight: </b></div>
+                            <div id="containerFillHeight"></div>
+                        </div>
+                        <div class="infoLine  underInfo">
+                            <div class="title"><b>Counter: </b></div>
+                            <div id="containerCounter"></div>
+                        </div>
+                        <div class="infoLine  underInfo">
+                            <div class="title"><b>Date: </b></div>
+                            <div id="containerDate"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="map"></div>
+    </div>
+    <script src="preMap.js"></script>
+    <script src="markerclusterer.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=INSERTKEYHERE&language=nb&region=NO&callback=initMap" async defer></script>
+    <script src="postMap.js"></script>
+</body>
+
+</html>
